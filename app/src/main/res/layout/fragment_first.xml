@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
+    android:backgroundTint="#000000"
     tools:context=".FirstFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -16,8 +18,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="-2dp"
         android:layout_marginTop="59dp"
+        android:background="#000000"
         android:gravity="center"
         android:text="Ihr Alkoholgehalt:"
+        android:textColor="@color/white"
         android:visibility="visible" />
 
     <TextView
@@ -29,6 +33,7 @@
         android:layout_marginStart="-3dp"
         android:layout_marginTop="85dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="00.00%" />
 
     <TextView
@@ -40,6 +45,7 @@
         android:layout_marginStart="-1dp"
         android:layout_marginTop="143dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="Sie sind (ungefähr) nüchtern in:" />
 
     <TextView
@@ -51,6 +57,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="222dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="00h00min" />
 
     <Button
@@ -61,8 +68,10 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="81dp"
+        android:backgroundTint="#F44336"
         android:onClick="onButtonClicked"
-        android:text="Request Data" />
+        android:text="Request Data"
+        android:textColor="@color/white" />
 
     <TextView
         android:layout_width="match_parent"
@@ -75,6 +84,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="5dp"
         android:gravity="center_horizontal"
+        android:textColor="@color/white"
         android:text="(Bluetooth-Connection with \n Alcoholclick required)" />
 
     <EditText
@@ -87,7 +97,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="117dp"
         android:layout_marginBottom="155dp"
-        android:inputType="textPersonName" />
+        android:backgroundTint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/status"
@@ -96,6 +108,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="319dp"
+        android:textColor="@color/white"
         android:text="Bluetooth?" />
 
 </RelativeLayout>

@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.os.Message;
@@ -113,6 +115,7 @@ public class FirstFragment extends Fragment {
 
         button.setOnClickListener(new View.OnClickListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
 
@@ -132,6 +135,7 @@ public class FirstFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onButtonClicked(View view, TextView sober, TextView alk, TextView status, EditText name) {
         //BLuetooth Daten werden Empfangen:
         /*Handler handler =new Handler(new Handler.Callback() {
@@ -190,6 +194,7 @@ public class FirstFragment extends Fragment {
         Log.d(tag, String.valueOf(requireActivity().checkSelfPermission(Context.BLUETOOTH_SERVICE) == PackageManager.PERMISSION_GRANTED));
         if(!foundPair) {
             bluetoothAdapter.startDiscovery();
+
         }
         // byte[] readBuff= (byte[]) msg.obj;
         // String tempMsg=new String(readBuff,0,msg.arg1);
@@ -207,7 +212,7 @@ public class FirstFragment extends Fragment {
     private boolean tryConnectDevice(BluetoothDevice device) {
         Log.d(tag, device.getName());
         boolean connected = false;
-        if(device.getName().toLowerCase().contains("a51 von luz")) {
+        if(device.getName().equals("Galaxy A5 (2017)")) {
             ClientClass client = new ClientClass(device);
             client.start();
             connected = true;

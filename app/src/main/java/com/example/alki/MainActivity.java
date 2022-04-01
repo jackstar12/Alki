@@ -1,19 +1,17 @@
 package com.example.alki;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.TableLayout;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.EventListener;
 
 public class MainActivity extends AppCompatActivity {
     TextView gehalttext;
@@ -22,32 +20,29 @@ public class MainActivity extends AppCompatActivity {
     TextView sobertime;
 
     TabLayout tabLayout;
-    ViewPager2 pager2;
+    ViewPager2 pager;
     FragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         tabLayout = findViewById(R.id.tab_layout);
-        pager2 = findViewById(R.id.view_pager2);
+        pager = findViewById(R.id.view_pager2);
 
         FragmentManager fm = getSupportFragmentManager();
         adapter = new FragmentAdapter(fm, getLifecycle());
-        pager2.setAdapter(adapter);
+        pager.setAdapter(adapter);
 
         tabLayout.addTab(tabLayout.newTab().setText("Statistik"));
         tabLayout.addTab(tabLayout.newTab().setText("Highscores"));
-
-
+        tabLayout.addTab(tabLayout.newTab().setText("Geräte"));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                pager2.setCurrentItem(tab.getPosition());
-
-
-
+                pager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
@@ -70,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 
 }
